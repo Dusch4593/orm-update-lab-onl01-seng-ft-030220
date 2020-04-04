@@ -64,7 +64,8 @@ class Student
     sql = <<-SQL
       SELECT * 
       FROM students 
-      WHERE name = ?;
+      WHERE name = ?
+      LIMIT 1;
     SQL
     result = DB[:conn].execute(sql, name)[0]
     student = self.new(result[1], result[2], result[0])
